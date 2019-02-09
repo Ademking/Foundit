@@ -1,21 +1,159 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- START NAV -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <img src="http://foundit.website/img/logomini2.png" alt="Logo" />
+      </a>
+      <span [class]="'navbar-burger burger ' + Checknav()" data-target="navbarMenu" (click)="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+    <div id="navbarMenu" [class]="'navbar-menu ' + Checknav()">
+      <div class="navbar-end">
+        <a class="navbar-item is-active" (click)="changeLang('ar')">
+          <span class="flag-icon flag-icon-tn"></span> &nbsp; عربي
+        </a>
+        <a class="navbar-item is-active" (click)="changeLang('en')">
+          <span class="flag-icon flag-icon-gb"></span> &nbsp; English
+        </a>
+        <a href="mailto:ademkingnew@ygmail.com" class="navbar-item is-active">
+            <span class="lnr lnr-envelope"></span> &nbsp; {{ 'CONTACT' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END NAV -->
+
+<section class="hero is-small is-danger is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="columns">
+        <div class="column">
+          <img src="assets/header-logo-white.png" alt="" srcset="">
+        </div>
+        <div class="column">
+          <h1 [class]="'is-size-1 ' + isRTL()">{{ 'TITLE' | translate }}</h1>
+          <h2 [class]="isRTL()">
+            {{ 'PHRASE1' | translate }}
+            <br />
+            {{ 'PHRASE2' | translate }}
+          </h2>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+ <div class="hero-body">
+    <div class="container">
+        <div class="columns reverse-row-order">
+            <img id="img-buffer" src="/assets/scanme.png"  #imgBuffer>
+            <div class="column is-centered center-qr" *ngIf="(this.fullname !== '')" id="QR" >
+                <h1 [class]="'is-size-5 is-centered' ">{{ 'QR_HINT' | translate }}</h1>
+                <ngx-kjua
+                [text]="fullString"
+                [renderAsync]="false"
+                [render]="'image'"
+                [crisp]="true"
+                [minVersion]="1"
+                [ecLevel]="'H'"
+                [size]="310"
+                [ratio]="undefined"
+                [fill]="'#333'"
+                [back]="'#fff'"
+                [rounded]="50"
+                [quiet]="1"
+                [mode]="'image'"
+                [mSize]="45"
+                [mPosX]="50"
+                [mPosY]="50"
+                [label]="'Scan Me!'"
+                [fontname]="'sans-serif'"
+                [fontcolor]="'grey'"
+                [image]="this.imageElement.nativeElement"></ngx-kjua>
+            </div>
+            <div class="column" *ngIf="(this.fullname === '')">
+              <h1 class="has-text-centered has-text-danger	 is-size-2">
+                  <span class="icon">
+                      <i class="fas fa-lightbulb"></i>
+                  </span>
+              </h1>
+              <h1 class="has-text-centered  title is-size-5">{{ 'IDEA' | translate}}</h1>
+              <p class="has-text-centered">{{ 'DESC' | translate }}             <hr>
+              <h1 class="pad1 has-text-centered is-size-6">{{ 'CREATED_BY' | translate}}
+              <br>Adem Kouki 🍪☕</h1>
+              <div class="columns">
+                <div class="column"><a href="https://github.com/Ademking" target="_blank" class="button is-success is-fullwidth">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>GitHub</span>
+                </a>
+                </div>
+                <div class="column"><a href="https://facebook.com/Ademkouki.Officiel" target="_blank" class="button is-primary is-fullwidth">
+                    <span class="icon">
+                        <i class="fab fa-facebook"></i>
+                    </span>
+                    <span>Facebook</span>
+                </a></div>
+              </div>
+            </div>
+            <div [class]="'column has-text-centered ' + isblured()" id="DOWNLOAD">
+              <h1 [class]="'is-size-5 pad1 '">{{ 'HINT2' | translate }}</h1>
+                <a (click)="generatePDF()" class="button is-medium is-danger is-fullwidth " [attr.disabled]="isDisabled()">
+                    <span class="icon"></span>
+                    <span>{{ 'BUTTON_TXT' | translate }}</span>
+                </a>
+                <h1 [class]="'is-size-5 pad1 pad2'">{{ 'HINT3' | translate }}</h1>
+                <img src="assets/mini-tuto.png" alt="" srcset="">
+            </div>
+            <div [class]="'column ' + isRTL()" id="INPUT">
+                <h1 [class]="'is-size-5 pad1 ' + isRTL()">{{ 'HINT1' | translate }}</h1>
+                <div class="field">
+                    <label class="label">{{ 'NAME' | translate }}</label>
+                    <p class="control">
+                      <input class="input" (input)="updatefullstring()" [(ngModel)]="fullname" type="text" placeholder="{{ 'PLACEHOLDER_NAME' | translate }}">
+                    </p>
+                </div>
+                <div class="field">
+                    <label class="label">{{ 'PHONE' | translate }}</label>
+                    <p class="control">
+                      <input class="input" (input)="updatefullstring()" [(ngModel)]="phone" type="text" placeholder="{{ 'PLACEHOLDER_PHONE' | translate }}">
+                    </p>
+                </div>
+                <div class="field">
+                    <label class="label">{{ 'ADDRESS' | translate }}</label>
+                    <p class="control">
+                      <input class="input" (input)="updatefullstring()" [(ngModel)]="address" type="text" placeholder="{{ 'PLACEHOLDER_ADDRESS' | translate }}">
+                    </p>
+                </div>
+                <div class="field">
+                    <label class="label">{{ 'EMAIL' | translate }}</label>
+                    <p class="control">
+                      <input class="input" type="text" (input)="updatefullstring()" [(ngModel)]="email" type="text" placeholder="{{ 'PLACEHOLDER_EMAIL' | translate }}">
+                    </p>
+                </div>
+            </div>
+           
+
+
+
+
+          </div>
+          
+    </div>
+ </div>
+</section>
+
+
+
+
+
 
 <router-outlet></router-outlet>

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Tajawal:300');
+/* Flags */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css'); 
+
+
+@font-face {
+	font-family: 'Linearicons-Free';
+	src:url('https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.eot');
+	src:url('https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.eot?#iefix') format('embedded-opentype'),
+		url('https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.woff2') format('woff2'),
+		url('https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.ttf') format('truetype'),
+		url('https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.woff') format('woff'),
+		url('https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.svg#Linearicons-Free') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+.button.is-primary {
+    background-color: #005bd1;
+    border-color: transparent;
+    color: #fff
+}
+
+.button.is-primary.is-hovered,.button.is-primary:hover {
+    background-color: #003ec4;
+    border-color: transparent;
+    color: #fff
+}
+
+.button.is-primary.is-focused,.button.is-primary:focus {
+    border-color: transparent;
+    color: #fff
+}
+
+.button.is-primary.is-focused:not(:active),.button.is-primary:focus:not(:active) {
+    box-shadow: 0 0 0 .125em rgba(0, 98, 209, 0.25)
+}
+
+.button.is-primary.is-active,.button.is-primary:active {
+    background-color: #00b89c;
+    border-color: transparent;
+    color: #fff
+}
+
+.button.is-primary[disabled] {
+    background-color: #0042d1;
+    border-color: transparent;
+    box-shadow: none
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.lnr {
+	font-family: 'Linearicons-Free';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.lnr-envelope:before {
+	content: "\e818";
+}
+
+#img-buffer{
+    display: none;
+}
+
+* {
+    font-family: 'Tajawal', sans-serif;
+}
+
+.center-qr{
+    text-align: center;
+}
+
+
+.rlt-direction{
+    input{
+        direction: rtl;
+    }
+}
+
+.pad1{
+    padding-bottom: 10px;
+}
+.pad2{
+    padding-top: 10px;
+}
+
+.shadow{
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -ms-filter: blur(3px);
+    -o-filter: blur(3px);
+    filter: blur(3px);
+
+}
+
