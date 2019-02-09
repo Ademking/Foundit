@@ -52,7 +52,7 @@
 <section class="hero is-small">
  <div class="hero-body">
     <div class="container">
-        <div class="columns reverse-row-order">
+        <div class="columns is-hidden-touch">
             <img id="img-buffer" src="./assets/scanme.png"  #imgBuffer>
             <div class="column is-centered center-qr" *ngIf="(this.fullname !== '')" id="QR" >
                 <h1 [class]="'is-size-5 is-centered' ">{{ 'QR_HINT' | translate }}</h1>
@@ -147,6 +147,106 @@
 
           </div>
           
+
+
+
+          <div class="columns is-hidden-desktop">
+              <img id="img-buffer" src="./assets/scanme.png"  #imgBuffer>
+              <div [class]="'column ' + isRTL()" id="INPUT">
+                  <h1 [class]="'is-size-5 pad1 ' + isRTL()">{{ 'HINT1' | translate }}</h1>
+                  <div class="field">
+                      <label class="label">{{ 'NAME' | translate }}</label>
+                      <p class="control">
+                        <input class="input" (input)="updatefullstring()" [(ngModel)]="fullname" type="text" placeholder="{{ 'PLACEHOLDER_NAME' | translate }}">
+                      </p>
+                  </div>
+                  <div class="field">
+                      <label class="label">{{ 'PHONE' | translate }}</label>
+                      <p class="control">
+                        <input class="input" (input)="updatefullstring()" [(ngModel)]="phone" type="text" placeholder="{{ 'PLACEHOLDER_PHONE' | translate }}">
+                      </p>
+                  </div>
+                  <div class="field">
+                      <label class="label">{{ 'ADDRESS' | translate }}</label>
+                      <p class="control">
+                        <input class="input" (input)="updatefullstring()" [(ngModel)]="address" type="text" placeholder="{{ 'PLACEHOLDER_ADDRESS' | translate }}">
+                      </p>
+                  </div>
+                  <div class="field">
+                      <label class="label">{{ 'EMAIL' | translate }}</label>
+                      <p class="control">
+                        <input class="input" type="text" (input)="updatefullstring()" [(ngModel)]="email" type="text" placeholder="{{ 'PLACEHOLDER_EMAIL' | translate }}">
+                      </p>
+                  </div>
+              </div>
+                
+              <div [class]="'column has-text-centered ' + isblured()" id="DOWNLOAD">
+                  <h1 [class]="'is-size-5 pad1 '">{{ 'HINT2' | translate }}</h1>
+                    <a (click)="generatePDF()" class="button is-medium is-danger is-fullwidth " [attr.disabled]="isDisabled()">
+                        <span class="icon"></span>
+                        <span>{{ 'BUTTON_TXT' | translate }}</span>
+                    </a>
+                    <h1 [class]="'is-size-5 pad1 pad2'">{{ 'HINT3' | translate }}</h1>
+                    <img src="assets/mini-tuto.png" alt="" srcset="">
+                </div>
+              <div class="column is-centered center-qr" *ngIf="(this.fullname !== '')" id="QR" >
+                  <h1 [class]="'is-size-5 is-centered' ">{{ 'QR_HINT' | translate }}</h1>
+                  <ngx-kjua
+                  [text]="fullString"
+                  [renderAsync]="false"
+                  [render]="'image'"
+                  [crisp]="true"
+                  [minVersion]="1"
+                  [ecLevel]="'H'"
+                  [size]="310"
+                  [ratio]="undefined"
+                  [fill]="'#333'"
+                  [back]="'#fff'"
+                  [rounded]="50"
+                  [quiet]="1"
+                  [mode]="'image'"
+                  [mSize]="45"
+                  [mPosX]="50"
+                  [mPosY]="50"
+                  [label]="'Scan Me!'"
+                  [fontname]="'sans-serif'"
+                  [fontcolor]="'grey'"
+                  [image]="this.imageElement.nativeElement"></ngx-kjua>
+              </div>
+              <div class="column" *ngIf="(this.fullname === '')">
+                <h1 class="has-text-centered has-text-danger	 is-size-2">
+                    <span class="icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </span>
+                </h1>
+                <h1 class="has-text-centered  title is-size-5">{{ 'IDEA' | translate}}</h1>
+                <p class="has-text-centered">{{ 'DESC' | translate }}             <hr>
+                <h1 class="pad1 has-text-centered is-size-6">{{ 'CREATED_BY' | translate}}
+                <br>Adem Kouki 🍪☕</h1>
+                <div class="columns">
+                  <div class="column"><a href="https://github.com/Ademking" target="_blank" class="button is-success is-fullwidth">
+                      <span class="icon">
+                          <i class="fab fa-github"></i>
+                      </span>
+                      <span>GitHub</span>
+                  </a>
+                  </div>
+                  <div class="column"><a href="https://facebook.com/Ademkouki.Officiel" target="_blank" class="button is-primary is-fullwidth">
+                      <span class="icon">
+                          <i class="fab fa-facebook"></i>
+                      </span>
+                      <span>Facebook</span>
+                  </a></div>
+                </div>
+              </div>
+          
+              
+             
+  
+  
+  
+  
+            </div>
     </div>
  </div>
 </section>
