@@ -45,7 +45,7 @@ export class AppComponent implements OnInit{
   constructor(private translateService: TranslateService){
 
 
-    this.numbers = Array(28).fill().map((x, i) => i);
+    this.numbers = Array(28).fill([]).map((x, i) => i);
     this.translateService.setTranslation('en', 
     {
       "TITLE": "Keep Your Things Safe!",
@@ -197,7 +197,7 @@ Checknav(){
   }
 
   generateNumbers(): void {
-    this.numbers = Array(this.numcodes).fill().map((x, i) => i);
+    this.numbers = Array(this.numcodes).fill([]).map((x, i) => i);
     this.progressMax = this.numcodes;
   }
 
