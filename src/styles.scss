@@ -1,1 +1,4 @@
 /* fix Bulma vertical Scrollbar */
+html {
+  overflow-y: auto !important;
+}

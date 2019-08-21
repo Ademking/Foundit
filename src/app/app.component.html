@@ -1,9 +1,9 @@
 <!-- START NAV -->
 <nav class="navbar">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        <img src="https://foundit.website/img/logomini2.png" alt="Logo" />
+	<div class="container">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="#">
+				<img src="https://foundit.website/img/logomini2.png" alt="Logo" />
       </a>
       <span [class]="'navbar-burger burger ' + Checknav()" data-target="navbarMenu" (click)="toggleNav()">
         <span></span>
@@ -19,7 +19,7 @@
         <a class="navbar-item is-active" (click)="changeLang('en')">
           <span class="flag-icon flag-icon-gb"></span> &nbsp; English
         </a>
-        <a href="mailto:ademkingnew@ygmail.com" class="navbar-item is-active">
+        <a style="color: black" href="mailto:ademkingnew@gmail.com" class="navbar-item is-active">
             <span class="lnr lnr-envelope"></span> &nbsp; {{ 'CONTACT' | translate }}
         </a>
       </div>
@@ -42,7 +42,7 @@
             <br />
             {{ 'PHRASE2' | translate }}
           </h2>
-          
+
         </div>
       </div>
     </div>
@@ -140,15 +140,8 @@
                     </p>
                 </div>
             </div>
-           
-
-
-
 
           </div>
-          
-
-
 
           <div class="columns is-hidden-desktop">
               <img id="img-buffer" src="./assets/scanme.png"  #imgBuffer>
@@ -179,7 +172,7 @@
                       </p>
                   </div>
               </div>
-                
+
               <div [class]="'column has-text-centered ' + isblured()" id="DOWNLOAD">
                   <h1 [class]="'is-size-5 pad1 '">{{ 'HINT2' | translate }}</h1>
                     <a (click)="generatePDF()" class="button is-medium is-danger is-fullwidth " [attr.disabled]="isDisabled()">
@@ -239,21 +232,9 @@
                   </a></div>
                 </div>
               </div>
-          
-              
-             
-  
-  
-  
-  
             </div>
     </div>
  </div>
 </section>
-
-
-
-
-
 
 <router-outlet></router-outlet>

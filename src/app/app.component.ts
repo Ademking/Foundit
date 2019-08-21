@@ -11,7 +11,7 @@ import jsPDF from 'jspdf';
 })
 export class AppComponent implements OnInit{
 
-  
+
   /** infos */
   fullname = '';
   address = '';
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit{
 
 
     this.numbers = Array(28).fill([]).map((x, i) => i);
-    this.translateService.setTranslation('en', 
+    this.translateService.setTranslation('en',
     {
       "TITLE": "Keep Your Things Safe!",
       "PHRASE1": "Is losing your cell phone, wallet, or keys part of your daily routine?",
@@ -69,8 +69,8 @@ export class AppComponent implements OnInit{
       "DESC" : "You can easily find your lost item with us. Protect your property against loss. You can attach your QR to anything you don’t want to lose: keys, wallets, bags, Laptops.. or even animals",
       "IDEA": "The idea of this website"
     });
-    
-    this.translateService.setTranslation('ar', 
+
+    this.translateService.setTranslation('ar',
     {
       "TITLE": "!استحفظ على ممتلكاتك",
       "PHRASE1": "ديما تنسى و إلا تضيع دبشك ؟",
@@ -93,18 +93,18 @@ export class AppComponent implements OnInit{
       "DESC" : "برشا ناس ديما تضيع ممتلكاتها، ما فما حتى حل الا انك تلوج في صفحات الفيسبوك عليها ... علاش ما تستعملش طريقة ساهلة و مجانية باش تضمن رجوع ممتلكاتك اذا لقاها شخص ضائعة",
       "IDEA" : "فكرة الموقع"
     });
-  
+
 }
 
 ngOnInit() {
-  this.translateService.use('ar');
+  this.translateService.use('en');
 }
 
 
  isRTL(){
   if (this.translateService.currentLang === 'ar'){
     return "has-text-right rlt-direction";
-  } 
+  }
   else {
     return "has-text-left ";
   }
@@ -117,7 +117,7 @@ ngOnInit() {
     this.translateService.use(lang)
   }
 
-  
+
   static getBarcodeData(text: string, size = 400, image) {
     return kjua({
       render: "canvas",
@@ -150,9 +150,9 @@ Checknav(){
   if (this.isNavActive)
     return "is-active";
   else
-    return ""; 
+    return "";
 }
-  
+
   reset(){
     this.fullname = '';
     this.email = '';
@@ -173,7 +173,7 @@ Checknav(){
  isDisabled(){
    if (this.fullname === '' || this.phone === '')
     return true;
-  else 
+  else
     return undefined;
  }
 
@@ -181,7 +181,7 @@ Checknav(){
  isblured(){
   if (this.fullname === '' || this.phone === '')
     return 'shadow';
-  else 
+  else
     return '';
  }
 
@@ -246,7 +246,7 @@ Checknav(){
       document.text(strEN, 210 / 2, 297  - 10, 'center');
       document.text(strAR, 210 / 2, 297  - 5, 'center');
       document.save(`QR-Codes.pdf`);
-      
+
 
     } else {
       requestAnimationFrame(() => this.generatePDF(index + 1, document, colPos, rowPos));
@@ -255,6 +255,6 @@ Checknav(){
 
 
 
-  
+
 
 }
