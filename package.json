@@ -22,7 +22,7 @@
     "@angular/router": "~7.2.0",
     "@ngx-translate/core": "^11.0.1",
     "core-js": "^2.5.4",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.5.1",
     "kjua": "^0.1.2",
     "ngx-kjua": "^1.3.0",
     "rxjs": "~6.3.3",
